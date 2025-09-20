@@ -1,147 +1,145 @@
-Abstract- Main study of this paper is it deals with gaussian process regression, gaussian process classification and clustering. Two different regression and classification techniques are performed 1.e., normal gaussian classification and XGB gaussian classification, gaussian regression and logistic regression to check how efficiently the models are working by comparing them with outputs. Main goal is to find out the fraudulent data of the job postings by performing different techniques.
-Keywords-gaussian process, classification, regression, clustering  
-II.	INTRODUCTION 
-Fake jobs are the one of the main concerns that should be highlighted in domain of online job recruitment. company owners will be posting all the job vacancies online so that people who are unemployed can get a posting very easily by choosing them.so, there will be few peoples where they act as company owners and post job vacancies online so that they can request money and cheat job seekers.so here an automated tool is developed so that we can easily find out the fake job postings. Different Gaussian process are being implemented using machine learning to find out these fake job postings.so initially we are performing the clustering of the data using k-means algorithm and then classification and regression are performed using the gaussian process algorithms.
-III.	LITERATURE SURVEY
-[1] Based on several studies it has shown that the main reasons for fake job postings are data entry scams, pyramid marketing, stuffing envelopes etc.
+# Fraudulent Job Postings Detection using Gaussian Processes
 
-Data entry scams:
-One of main reason for data entry scam is that they will show a lot of funding for the job where less skill is required. Here scam will take place of upfront funds.
+## Abstract
 
-Pyramid marketing:
-This has no basis in real commerce and there will be only exchange of money no product will be involved. most of the people invest money in this marketing because people trust that they will be funded in huge amounts but the open reality is some one must lose money if the other one wants to gain.
-Stuffing envelopes:
-This is one of biggest online job scams that will taking       place currently. It is more like filling an envelope online and paying a small amount online. Making others to buy the same envelope online will get a small commission but others will be involved in scam and pay an amount that is not refundable.
+This project investigates the use of Gaussian Process Regression (GPR), Gaussian Process Classification (GPC), and clustering techniques to identify fraudulent job postings in online recruitment platforms. The study compares several machine learning models including Normal Gaussian Classification, XGB Gaussian Classification, Gaussian Regression, and Logistic Regression to determine the most effective methods for detecting fake job postings. The primary goal is to identify fraudulent job data using these techniques.
 
-[2] A basic introduction for the gaussian process models is given and this paper mainly focuses on distribution over functions using stochastic process. Training data will be incorporated using simple equations and will see how marginal likelihood will be used to learn hyperparameters. All the current trends and practical advantages in gaussian process will be explained here. 
+**Keywords**: Gaussian Process, Classification, Regression, Clustering
 
-[3] In this paper gaussian regression being used to estimate the tree height. In a coniferous boreal forest, the tree estimates are produced. Both predictive and estimate variance are found for gaussian process of each pixel. Results that are obtained shows that the estimates that are produced are really good and efficient when compared to the previous models. 
+---
 
-[4] The main aim here is to go on to either labelled or unlabelled data to train a mathematical model and then we can use to predict the unlabelled data for data mining model.  It is tough task to match the training datasets which has same no of distribution values. In this paper a Transfer classification algorithm has been proposed based on the gaussian process model, which is used to solve homogeneous transfer classification problem. 
+## Table of Contents
 
+1. [Introduction](#introduction)
+2. [Literature Survey](#literature-survey)
+3. [Problem and Dataset](#problem-and-dataset)
+4. [Methods](#methods)
+   - 4.1 [Clustering](#clustering)
+   - 4.2 [Gaussian Classification](#gaussian-classification)
+   - 4.3 [Gaussian Regression](#gaussian-regression)
+   - 4.4 [Logistic Regression](#logistic-regression)
+5. [Experimental Setup](#experimental-setup)
+6. [Results](#results)
+7. [Social, Ethical, Legal, and Professional Considerations](#social-ethical-legal-and-professional-considerations)
+8. [Conclusion](#conclusion)
+9. [References](#references)
 
+---
 
-[5] one of the most occurring cancer melanoma, patients moles will be evaluated individually to identify outlier lesions. In recent past there are high level results in medical field using machine learning and deep learning techniques. Skin lesion classification is performed by training a deep neural network on image dataset and it is classified effectively using XGB classifier, using this the accuracy will increase and computational costa are decreased.
+## Introduction
 
+The rise of fake job postings is a major concern in the online job recruitment domain. Fraudulent job postings are often designed to scam job seekers by requesting upfront payment or collecting personal data under the guise of a legitimate job opportunity. This paper introduces an automated system to detect fake job postings by leveraging various Gaussian Process techniques, including classification and regression models. The system utilizes clustering to group data and applies Gaussian Process algorithms to predict fraudulent job data.
 
+---
 
-[6] In image processing clustering is the initial task. In this paper database contains of data in form of images and texts. These databases should be mined continuously and decisions are made accurately in short span of time to increase profit in marketing. Image segmentation plays a crucial role in clustering. By using this technique efficiency will be increased and time will be saved. In this paper area of image segmentation deals with the application of standard k-means and fuzzy k-means algorithms. So finally various experiments have proven that the use of k-means algorithms has shown high efficiency in image segmentation.
-		
+## Literature Survey
 
-IV.	PROBLEM AND DATA SET
+- **Data Entry Scams, Pyramid Marketing, and Envelope Stuffing**: Fraudulent job postings often involve data entry scams, pyramid schemes, and envelope stuffing, where victims are promised high returns in exchange for payment or other personal data [1].
+- **Gaussian Process Models**: A Gaussian Process is a powerful probabilistic model often used for function approximation and regression. This paper highlights the use of Gaussian processes for classification and regression tasks [2], [3].
+- **Application in Image Processing**: K-means clustering has been successfully applied in image processing and data mining tasks, leading to enhanced decision-making and operational efficiency [6].
 
-Problem:
-We are mainly dealing with the fake job postings that are being posted online. Numerous company owners make fake job openings online so that they can attract the people in name of high fundings and they can add their resume in their file and add them falsely as replacement of staff .so to find out this fake job posting we are going to using different gaussian process techniques to predict the percentage of these fake job postings.
+---
 
+## Problem and Dataset
 
-Dataset:
+### Problem
 
-We are using a dataset that is taken from Kaggle website known as “predicting fraudulent job-data. There are multiple input variables in this dataset and a output variable. we are choosing seven input variables and one output variable. the seven input variables are title, location, department, salary_range, company_profile, description, requirements and the output variable are fraudulent. By using this data, we are going to perform the gaussian process techniques.
-Link for the dataset is given below:
-https://www.kaggle.com/kj82227390/predicting-fraudulent-job/data.
+The primary focus of this study is to identify fraudulent job postings. Fake job openings are typically designed to collect money from job seekers or steal their personal information. Detecting such fraudulent postings is a challenging but crucial task. By using various Gaussian Process techniques, we aim to detect fraudulent job postings accurately.
 
-V.	METHODS
-Methods that are performed in this experiment are shown below: 
-1)clustering 
-2)Gaussian Classification:
-In this again we are performing the two types of classification techniques one is normal gaussian classification and other XGB gaussian classifier 
-3)Gaussian regression
-4)logistic regression
+### Dataset
 
+The dataset used in this study is sourced from Kaggle, titled "Predicting Fraudulent Job Data." It includes multiple input variables and one output variable. The input variables are:
 
-1)clustering:
-	It is an unsupervised machine learning task, where all the unlabeled data will be grouped together. All the data points that are similar will be formed into different clusters. K-means clustering:
-	[6] The initial step in k-means clustering is that we are selecting k centroids, where k is no of cluster that have been chosen. Center of the cluster is represented by data points which are known as centroids. K-means mainly works in two step process:
-(1) expectation
-(2) maximization
-(1) expectation is defined as nearest centroid chosen by assigning each data point
-(2) maximization is defined as where new centroid will be set by computing all the mean points for each cluster
+- Title
+- Location
+- Department
+- Salary Range
+- Company Profile
+- Description
+- Requirements
 
-2)Gaussian classification:
-	[7] To perform probilistic classification we are using the gaussian classifier. A gaussian process is defined as a probability distribution generalization, stochastic process that governs the properties of functions. we can import gaussian processor classifier class from sikit learn in python. Using this we can specify the kernel. Model will best fit the kernel for the training dataset once the kernel is specified.no of iterations for the optimizer is controlled by max_iter_predict.
+The output variable is:
 
-XGB classifier:
-	[8] XG boost uses a process know as boosting which is used to improve the model’s efficiency and it is based on the decision tree machine learning algorithm. Once the data has been imported using that dataset model will be trained.  Basic classification involves in predicting the target class. Model will try to learn the features that are correlated with target class and once this is done model will be more accurate at making predictions. XGboost has been implemented in various languages, in python we are using it by importing sklearn framework.
+- Fraudulent (Binary: 1 for fraudulent, 0 for non-fraudulent)
 
+[Dataset Link](https://www.kaggle.com/kj82227390/predicting-fraudulent-job/data)
 
-3)Gaussian regression:
-	[9] Gaussian process regression is framework of supervised machine learning which is mostly used for the regression.  Using this process, we can provide uncertainty measures over predictions. Gaussian process regression fits all the data with the help of functions finds the probability distribution. There are many ways to implement the gaussian process but we are using scikitlearn to implement gaussian process regression 
+---
 
+## Methods
 
+### Clustering
+Clustering is performed as an unsupervised learning technique, grouping similar data points together. K-means clustering is used to create clusters based on similarity, where `k` is the number of clusters. This method involves two steps:
+1. **Expectation**: Assign each data point to the nearest centroid.
+2. **Maximization**: Compute new centroids by calculating the mean of all points in each cluster.
 
-4)logistic regression:
-	[10] Linear regression extension is known as logistic regression. It shows two outcomes for the classification problems. This is mainly medical fields like to predict diseases early stages on the basis of age, problems etc. logistic regression is same as the linear regression just that it predicts probabilities for multiple external factors. In logistic regression the dependent variable follows the Bernoulli distribution. maximum likelihood estimation is used to calculate the estimation.
-The accuracy for logistic regression is calculated by below formulae
-(TP+TN)/(TP+TN+FP+FN)
-Where TP=True Positive, TN=True Negative, FP=False Negative, FN=False Negative
+### Gaussian Classification
+Gaussian Process Classification (GPC) is used to perform probabilistic classification by applying a Gaussian Process as a distribution over functions. This method predicts the likelihood of a data point belonging to a particular class.
 
+- **XGB Gaussian Classifier**: This model applies XGBoost (eXtreme Gradient Boosting) to improve the efficiency of Gaussian classification using decision trees and boosting techniques.
 
+### Gaussian Regression
+Gaussian Process Regression (GPR) is applied for regression tasks, where the model fits data using probability distributions and provides uncertainty measures over predictions. The implementation is done using `scikit-learn`.
 
-VI.	EXPERIMENTAL SETUP
-Data preprocessing:
-	It is defined as the technique that is used to preparing the dataset for the training of our machine learning model. 
- Initially we are importing the dataset and then we filling all the null values using fillna method. 
+### Logistic Regression
+Logistic Regression is an extension of linear regression used for binary classification tasks. It predicts the probability of the outcome based on the input features. In this study, it is used for classification of fraudulent job postings.
 
- 
-Feature selection:
-	Feature selection is defined as decreasing the no of input variables and taking selected variables into consideration to predict the target variable. The main focus here is to remove all the unwanted information from the dataset.
-In the dataset totally there are 18 variables in that we are choosing eight variables in that seven input variables and one output variable they are title, location, department, salary_range, company_profile, description, requirements and the output variable is fraudulent.
+---
 
+## Experimental Setup
 
-Feature extraction:
-Feature extraction is defined as a method which is used to combine the variables into features where the original dataset won’t be disturbed by doing this.  One the main thing about feature extraction is that all the redundant data will be removed very easily.
-The feature extraction technique is being used here count vectorizer. It is one of best tool that has been provided by scikitlearn.  The conversion of words into vector on the basis of number of times that occurred in entire text. Screen shot after converting the dataset into is displayed below 
+### Data Preprocessing
+The dataset is first preprocessed by handling missing values using the `fillna()` method. Preprocessing ensures that the dataset is ready for training the models.
 
+### Feature Selection
+Feature selection is performed to reduce the number of input variables, retaining only the most important ones. Seven input variables (Title, Location, Department, Salary Range, Company Profile, Description, and Requirements) are selected along with the output variable (Fraudulent).
 
- 
+### Feature Extraction
+Feature extraction is done using `CountVectorizer`, which converts textual data into numerical features based on the frequency of words. This helps in transforming unstructured data into a format suitable for machine learning models.
 
-VII.	RESULTS
+---
 
-Clustering has been performed for the input data and output data 
+## Results
 
- 
+### Clustering
+The initial clustering step was performed using K-means, and scatter plots were created to visualize the grouping of data points based on input variables.
 
-The plot for clustering has been plotted below for all the input variables and output variable
+### Classification Accuracy
+- **Gaussian Process Classifier**: 99.27% accuracy
+- **XGB Gaussian Classifier**: 99.27% accuracy
 
- 
+Both models showed exceptional performance in identifying fraudulent job postings.
 
+### Regression Accuracy
+- **Logistic Regression**: 99% accuracy
+- **Gaussian Regression**: 82% accuracy
 
+Logistic regression outperformed Gaussian regression in terms of accuracy, demonstrating its suitability for this classification task.
 
- 
-	
+---
 
-Here scatter plot has been plotted between all the input variables against the output variable.
- 
-Once the classification techniques are performed the output graphs and accuracy score are displayed below 
+## Social, Ethical, Legal, and Professional Considerations
 
- 
+The detection of fraudulent job postings using machine learning can have a significant social impact by preventing scams and protecting job seekers. However, there are ethical concerns, such as privacy issues related to handling personal information. The legal implications of identifying and reporting fake job postings must also be considered to avoid false accusations or violations of privacy.
 
+---
 
+## Conclusion
 
+This paper demonstrates the effectiveness of Gaussian Process techniques in detecting fraudulent job postings. K-means clustering, along with Gaussian and XGB classification, as well as regression models, were implemented and compared. The models show promising results, with high accuracy in identifying fake job data. Further work can focus on enhancing model performance and addressing the social and ethical implications of detecting fraud in online job platforms.
 
- 
-	
+---
 
-The accuracy score for gaussian process classifier and XGB classifier are 99.27 percent respectively. This shows that both the models are working very accurately.
+## References
 
- 
+1. [Online Fake Job Postings](https://www.flexjobs.com/blog/post/common-job-search-scams-how-to-protect-yourself-v2/)
+2. [Gaussian Process Introduction](https://www.researchgate.net/publication/41781206_Gaussian_Processes_in_Machine_Learning)
+3. [Gaussian Process Regression](https://ieeexplore.ieee.org/document/7729450)
+4. [Gaussian Process Classification](https://ieeexplore.ieee.org/document/8455721)
+5. [Melanoma Classification Using XGBClassifier](https://ieeexplore.ieee.org/document/9498424)
+6. [Introduction to Clustering](https://realpython.com/k-means-clustering-python/)
+7. [Method for Gaussian Classifier](https://machinelearningmastery.com/gaussian-processes-for-classification-with-python/)
+8. [XGB Classifier](https://practicaldatascience.co.uk/machine-learning/how-to-create-a-classification-model-using-xgboost)
+9. [Gaussian Regression](https://towardsdatascience.com/quick-start-to-gaussian-process-regression-36d838810319)
+10. [Logistic Regression](https://medium.com/@rajwrita/logistic-regression-the-the-e8ed646e6a29)
 
-
-The above graph is a regression graph plot. The accuracy score for logistic regression is 99 percent and the accuracy score for Gaussian regression is 82 percent. This shows that 
-Logistic regression model work more accurately that gaussian regression model.
-
-VIII.	SOCIAL, ETHICAL, LEGAL AND PROFESSIONAL CONSIDERATIONS 
-The dataset is mainly based on the finding out fake job postings. The dataset consists of data like job title, company name, location etc. people might post few fake postings online so that others ones can easily apply for the job and pays some upfront this may cause social issue and few other ones can speak to people online by telling them company may provide a job with high hike which mainly leads to ethical breaching and manager or employee who is breaching these rules is breaking the company professionality and may subjected to causes as mentioned on company’s privacy site. We have developed a model to find out the fake job postings. It is better to find out people who are making these fake job openings because the scams will be reduced.
-IX.	CONCLUSION
-This paper mainly discussed about the Gaussian process techniques. Initially clustering techniques has been done using k-means algorithm and graph has been plotted. Gaussian process regression and logistic regression, gaussian classification and XGB classification techniques are done and outputs have been compared and graphs are plotted respectively.
-IX. REFERENCES
-[1] “online fake job postings” https://www.flexjobs.com/blog/post/common-job-search-scams-how-to-protect-yourself-v2/
-[2]” Gaussian process introduction” https://www.researchgate.net/publication/41781206_Gaussian_Processes_in_Machine_Learning 
-[3]” Gaussian process regression” https://ieeexplore.ieee.org/document/7729450 
-[4] “Gaussian process classification” https://ieeexplore.ieee.org/document/8455721 
-[5]” MELANOMA CLASSIFICATION USING XGBCLASSIFIER AND EFFICIENTNET” HTTPS://IEEEXPLORE.IEEE.ORG/DOCUMENT/9498424 
- [6]”Introduction to clustering” https://realpython.com/k-means-clustering-python/ 
- [7]”method for gaussian classifier” https://machinelearningmastery.com/gaussian-processes-for-classification-with-python/ 
-[8]”XGB classifier” https://practicaldatascience.co.uk/machine-learning/how-to-create-a-classification-model-using-xgboost 
-[9]” Gaussian regression” https://towardsdatascience.com/quick-start-to-gaussian-process-regression-36d838810319 
-[10]”logistic regression” https://medium.com/@rajwrita/logistic-regression-the-the-e8ed646e6a29
